@@ -1,44 +1,102 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import "@/styles/globals.css"
+import { ViewTransitions } from "astro:transitions"
 ---
 
-<Layout title="Login Page">
-  <main class="flex items-center justify-center h-screen bg-gradient-to-b from-blue-200 to-white">
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-      <div class="flex justify-center mb-6">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="64" height="64" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2b43f1" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-          <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-          <path d="M3 6l0 13" />
-          <path d="M12 6l0 13" />
-          <path d="M21 6l0 13" />
-        </svg>
-      </div>
+<ViewTransitions />
 
-      <h2 class="text-center text-4xl font-bold text-gray-800 mb-4">EduClicker</h2>
-      <p class="text-center text-gray-600 mb-8">Sign in to your account</p>
+<main class="flex h-screen items-center justify-center bg-gradient-to-b from-blue-200 to-white">
+	<div class="w-full max-w-md rounded-lg bg-white p-8 shadow-lg">
+		<div class="mb-6 flex justify-center">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="icon icon-tabler icon-tabler-book"
+				width="64"
+				height="64"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="#2b43f1"
+				fill="none"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+				<path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+				<path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+				<path d="M3 6l0 13"></path>
+				<path d="M12 6l0 13"></path>
+				<path d="M21 6l0 13"></path>
+			</svg>
+		</div>
 
-      <form action="/login">
-        <div>
-          <input type="text" id="username" name="username" placeholder="Username" class="p-2 block w-full border border-gray-300 rounded-t-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-        </div>
+		<h2 class="mb-4 text-center text-4xl font-bold text-gray-800">EduClicker</h2>
+		<p class="mb-8 text-center text-gray-600">Sign in to your account</p>
 
-        <div>
-          <input type="password" id="password" name="password" placeholder="Password" class="p-2 block w-full border border-gray-300 rounded-b-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-        </div>
+		<form>
+			<div>
+				<input
+					type="text"
+					id="username"
+					name="username"
+					placeholder="Username"
+					class="block w-full rounded-t-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+				/>
+			</div>
 
-        <div class="flex justify-center mt-6">
-          <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Sign In</button>
-        </div>
-      </form>
+			<div>
+				<input
+					type="password"
+					id="password"
+					name="password"
+					placeholder="Password"
+					class="block w-full rounded-b-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+				/>
+			</div>
 
-      <div class="mt-4 text-center">
-        <p class="text-sm text-gray-600">
-          Don't have an account? 
-          <a href="/register" class="text-blue-600 hover:text-blue-800">Register here</a>
-        </p>
-      </div>
-    </div>
-  </main>
-</Layout>
+			<div class="mt-6 flex justify-center">
+				<a href="/dashboard" class="w-full">
+					<button
+						class="w-full rounded-md bg-blue-600 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+						>Sign In</button
+					>
+				</a>
+			</div>
+		</form>
+
+		<div class="mt-4 text-center">
+			<p class="text-sm text-gray-600">
+				Don't have an account?
+				<a href="/register" class="text-blue-600 hover:text-blue-800">Register here</a>
+			</p>
+		</div>
+	</div>
+</main>
+
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>
